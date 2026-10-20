@@ -313,15 +313,24 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; heig
 @media (prefers-reduced-motion: reduce) { .origin-aperture, .origin-img { clip-path: none; transform: none; } }
 
 /* ===== Founder portrait (The Name / leadership section) ===== */
-.founder-portrait { position: relative; aspect-ratio: 4 / 5; border: 1px solid var(--line-dark);
+.founder-portrait { position: relative; aspect-ratio: 4 / 5; border: 1px solid var(--line-dark); overflow: hidden;
   background: linear-gradient(to bottom, oklch(0.96 0 0) 0%, oklch(0.88 0 0) 100%); }
 .founder-portrait::before, .founder-portrait::after { content: ""; position: absolute; width: 22px; height: 22px; pointer-events: none;
-  transition: width .45s var(--ease-out), height .45s var(--ease-out); }
+  transition: width .45s var(--ease-out), height .45s var(--ease-out); z-index: 3; }
 .founder-portrait::before { top: -1px; left: -1px; border-top: 2px solid var(--ink); border-left: 2px solid var(--ink); }
 .founder-portrait::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--ink); border-right: 2px solid var(--ink); }
 .founder-portrait-wrap:hover .founder-portrait::before, .founder-portrait-wrap:hover .founder-portrait::after { width: 38px; height: 38px; }
+.founder-portrait-bg { position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  background:
+    repeating-linear-gradient(to right, oklch(0 0 0 / .07) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(to bottom, oklch(0 0 0 / .07) 0 1px, transparent 1px 26px),
+    radial-gradient(120% 80% at 50% 12%, oklch(1 0 0) 0%, transparent 70%); }
 .founder-portrait-img { position: absolute; inset: 7% 8% 0; width: 84%; height: 93%; object-fit: contain; object-position: center;
-  filter: contrast(1.02) saturate(1.06); transition: transform .8s var(--ease-out);
+  filter: grayscale(1) contrast(1.08); transition: transform .8s var(--ease-out), filter .8s var(--ease-out);
   -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 82%); mask-image: linear-gradient(to bottom, #000 62%, transparent 82%); }
-.founder-portrait-wrap:hover .founder-portrait-img { transform: scale(1.02); }
+.founder-portrait-wrap:hover .founder-portrait-img { transform: scale(1.02); filter: grayscale(.85) contrast(1.08); }
+.founder-hud { position: absolute; inset: 0; pointer-events: none; z-index: 2; font-size: 10px; letter-spacing: .12em; }
+.founder-hud > span { position: absolute; color: oklch(0 0 0 / .45); padding: 12px 14px; }
+.founder-hud-tl { top: 0; left: 0; } .founder-hud-tr { top: 0; right: 0; text-align: right; } .founder-hud-bl { bottom: 0; left: 0; }
+.founder-portrait-wrap:hover .founder-hud > span { color: oklch(0 0 0 / .7); }
 @media (min-width: 1024px) { .founder-portrait { aspect-ratio: auto; height: 100%; min-height: 460px; } }
