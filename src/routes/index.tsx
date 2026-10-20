@@ -7,6 +7,7 @@ import { OriginPanel } from "@/components/OriginPanel";
 import issVideo from "@/assets/iss-video.mp4.asset.json";
 import goddardImg from "@/assets/goddard.jpg.asset.json";
 import oppenheimerImg from "@/assets/oppenheimer.jpg.asset.json";
+import bossPortrait from "@/assets/boss-portrait.png.asset.json";
 import { FOUNDER_BIRTH_ISO, FOUNDER_BIRTH_EN, founderAge } from "@/founder";
 
 const seoTitle = "GodHeimer Technologies | Space & Defense Technology from Thailand";
@@ -329,7 +330,19 @@ function Index() {
         <div className="site-container">
           <Head n="06" title="Founder & Leadership" />
           <div className="mt-16 grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-8">
+            <div className="reveal founder-portrait-wrap lg:col-span-4 lg:self-stretch">
+              <div className="founder-portrait">
+                <div className="founder-portrait-bg" aria-hidden="true" />
+                <img src={bossPortrait.url} alt="Natthakorn “Boss” Mueangsangsri, Founder & CEO of GodHeimer Technologies" loading="lazy" className="founder-portrait-img" />
+                <div className="founder-hud" aria-hidden="true">
+                  <span className="founder-hud-tl">GH-03 // FOUNDER</span>
+                  <span className="founder-hud-tr">B&amp;W / MONO</span>
+                  <span className="founder-hud-bl">PORTRAIT 04:05</span>
+                </div>
+              </div>
+              <p className="mono mt-5 text-ink/40">GH-03 // Founder</p>
+            </div>
+            <div className="lg:col-span-6">
               <p className="mono mono-lg reveal mb-6 text-ink/50">Founder &amp; CEO, GodHeimer Technologies</p>
               <h2 className="display-lg"><Lines lines={["Natthakorn “Boss”", "Mueangsangsri"]} /></h2>
               <div className="reveal mt-8 flex flex-wrap gap-x-12 gap-y-5 border-t border-line-light pt-6">
