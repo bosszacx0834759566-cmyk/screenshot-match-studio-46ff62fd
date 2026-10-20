@@ -336,7 +336,7 @@ function Index() {
                 <img src={bossPortrait.url} alt="Natthakorn “Boss” Mueangsangsri, Founder & CEO of GodHeimer Technologies" loading="lazy" className="founder-portrait-img" />
                 <div className="founder-hud" aria-hidden="true">
                   <span className="founder-hud-tl">GH-03 // FOUNDER</span>
-                  <span className="founder-hud-tr">B&amp;W / MONO</span>
+                  <span className="founder-hud-tr">FULL COLOR</span>
                   <span className="founder-hud-bl">PORTRAIT 04:05</span>
                 </div>
               </div>
